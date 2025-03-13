@@ -28,12 +28,12 @@ pipeline {
         stage('Deploy') {
             steps {
                 bat '''
-                    if not exist dist mkdir dist
-                    copy app.js dist/
-                    start /B "" cmd /c "npx http-server dist -p 3000 > deploy.log 2>&1"
-                    ping 127.0.0.1 -n 3 >nul
-                    netstat -aon | findstr :3000 || (echo ERROR: Port 3000 not in use! & exit /b 1)
-                    echo Server started on port 3000
+                if not exist dist mkdir dist
+                copy app.js dist
+                start /B "" cmd /c "npx http-server dist -p 3000 > deploy.log 2>&1"
+                ping 127.0.0.1 -n 3 >nul
+                netstat -aon | findstr :3000 || (echo ERROR: Port 3000 not in use! & exit /b 1)
+                echo Server started on port 3000
                 '''
             }
         }
