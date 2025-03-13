@@ -6,7 +6,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git url: 'https://github.com/your-username/nodejs-webapp-assignment5.git', branch: 'main'
+                git url: 'https://github.com/Sanskruti2209/nodejs-webapp-assignment5.git', branch: 'main'
             }
         }
         stage('Install Dependencies') {
